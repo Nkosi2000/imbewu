@@ -32,27 +32,27 @@ export default function CourseDetailScreen() {
       <TouchableOpacity
         onPress={() => !isLocked && router.push({ pathname: '/student/lesson/[id]', params: { id: item.id } }) }
         disabled={isLocked}
-        className={`flex-row items-center bg-white rounded-xl p-4 mb-3 ${
+        className={`flex-row items-center bg-slate-800 rounded-xl p-4 mb-3 border border-slate-700 ${
           isLocked ? 'opacity-60' : ''
         }`}
         style={{ elevation: 1 }}
       >
-        <View className="w-10 h-10 rounded-full bg-primary-100 items-center justify-center">
+        <View className="w-10 h-10 rounded-full bg-primary-700 items-center justify-center">
           {isCompleted ? (
-            <CheckCircle size={20} color="#16a34a" />
+            <CheckCircle size={20} color="#22c55e" />
           ) : isLocked ? (
-            <Lock size={18} color="#78716c" />
+            <Lock size={18} color="#94a3b8" />
           ) : (
-            <Play size={18} color="#16a34a" />
+            <Play size={18} color="#22c55e" />
           )}
         </View>
         <View className="flex-1 ml-3">
-          <Text className="font-semibold text-earth-800">
+          <Text className="font-semibold text-white">
             {index + 1}. {item.title}
           </Text>
           <View className="flex-row items-center mt-1">
             <Clock size={12} color="#78716c" />
-            <Text className="text-earth-500 text-xs ml-1">{item.duration_minutes} min</Text>
+                <Text className="text-earth-500 text-xs ml-1">{item.duration_mins} min</Text>
           </View>
         </View>
         {!isLocked && (

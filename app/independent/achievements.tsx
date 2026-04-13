@@ -2,9 +2,9 @@
  * @fileoverview Independent learner progress screen
  */
 
-import { View, Text, ScrollView } from 'react-native';
-import { Award, BookOpen, Clock, Flame, Target, TrendingUp } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Award, BookOpen, Clock, Flame, Target } from 'lucide-react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 const stats = [
   { label: 'Hours Learned', value: '24', icon: Clock, color: '#0891b2' },
@@ -20,10 +20,10 @@ const achievements = [
 
 export default function ProgressScreen() {
   return (
-    <LinearGradient colors={['#ecfeff', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b', '#0f172a']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Your Progress</Text>
-        <Text className="text-earth-500">Track your learning journey</Text>
+        <Text className="text-2xl font-bold text-white">Your Progress</Text>
+        <Text className="text-slate-400 mt-1">Track your achievements</Text>
       </View>
 
       <ScrollView className="flex-1 px-5">

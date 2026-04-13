@@ -25,16 +25,16 @@ export default function AdminDashboard() {
   const router = useRouter();
 
   return (
-    <LinearGradient colors={['#faf5ff', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b']} className="flex-1">
       <View className="pt-14 px-5 pb-4">
         <View className="flex-row justify-between items-center">
           <View>
-            <Text className="text-2xl font-bold text-earth-800">Admin Dashboard</Text>
-            <Text className="text-earth-500">Platform overview</Text>
+            <Text className="text-2xl font-bold text-white">Admin Dashboard</Text>
+            <Text className="text-slate-400">Platform overview</Text>
           </View>
           <TouchableOpacity
             onPress={() => router.push('/admin/courses/new')}
-            className="w-12 h-12 rounded-full bg-violet-600 items-center justify-center shadow-md"
+            className="w-12 h-12 rounded-full bg-primary-600 items-center justify-center shadow-md"
           >
             <Plus size={24} color="white" />
           </TouchableOpacity>
@@ -57,8 +57,8 @@ export default function AdminDashboard() {
                     </View>
                     <Text className="text-green-600 text-sm font-medium">{stat.change}</Text>
                   </View>
-                  <Text className="text-2xl font-bold text-earth-800 mt-3">{stat.value}</Text>
-                  <Text className="text-earth-500 text-sm">{stat.label}</Text>
+                  <Text className="text-2xl font-bold text-white mt-3">{stat.value}</Text>
+                  <Text className="text-slate-400 text-sm">{stat.label}</Text>
                 </View>
               </View>
             );
@@ -66,7 +66,7 @@ export default function AdminDashboard() {
         </View>
 
         <View className="bg-white rounded-2xl p-5 shadow-sm mb-4">
-          <Text className="text-lg font-bold text-earth-800 mb-4">Quick Actions</Text>
+          <Text className="text-lg font-bold text-white mb-4">Quick Actions</Text>
           <View className="flex-row flex-wrap -mx-2">
             {[
               { label: 'Add Course', color: '#7c3aed', onPress: () => router.push('/admin/courses/new') },
@@ -89,7 +89,7 @@ export default function AdminDashboard() {
           </View>
         </View>
 
-        <Text className="text-lg font-bold text-earth-800 mt-2 mb-3">Recent Activity</Text>
+        <Text className="text-lg font-bold text-white mt-2 mb-3">Recent Activity</Text>
         <View className="bg-white rounded-2xl overflow-hidden shadow-sm">
           {recentActions.map((action, index) => (
             <View
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
                 index < recentActions.length - 1 ? 'border-b border-earth-100' : ''
               }`}
             >
-              <Text className="text-earth-800">{action.text}</Text>
+              <Text className="text-white">{action.text}</Text>
               <Text className="text-earth-400 text-sm mt-1">{action.time}</Text>
             </View>
           ))}

@@ -2,12 +2,12 @@
  * @fileoverview Independent learner profile screen
  */
 
-import { View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native';
-import { User, Mail, LogOut, ChevronRight, Settings, Moon } from 'lucide-react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useAuthStore } from '@/store/auth';
 import { signOut } from '@/services/supabase';
+import { useAuthStore } from '@/store/auth';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { ChevronRight, LogOut, Mail, Settings, User } from 'lucide-react-native';
+import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 export default function IndependentProfileScreen() {
   const { user, logout } = useAuthStore();
@@ -39,14 +39,14 @@ export default function IndependentProfileScreen() {
   ];
 
   return (
-    <LinearGradient colors={['#ecfeff', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b', '#0f172a']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Profile</Text>
+        <Text className="text-2xl font-bold text-white">Profile</Text>
       </View>
 
       <ScrollView className="flex-1">
         <View className="items-center py-8">
-          <View className="w-24 h-24 rounded-full bg-cyan-600 items-center justify-center mb-4">
+          <View className="w-24 h-24 rounded-full bg-primary-600 items-center justify-center mb-4">
             <Text className="text-3xl font-bold text-white">
               {user?.first_name?.charAt(0)}{user?.last_name?.charAt(0)}
             </Text>

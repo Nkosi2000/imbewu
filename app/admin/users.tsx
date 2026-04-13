@@ -74,10 +74,10 @@ export default function AdminUsersScreen() {
   };
 
   return (
-    <LinearGradient colors={['#faf5ff', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b', '#0f172a']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Users</Text>
-        <Text className="text-earth-500">Manage user accounts</Text>
+        <Text className="text-2xl font-bold text-white">Users</Text>
+        <Text className="text-slate-400 mt-1">Manage platform users</Text>
       </View>
 
       <View className="px-5 mb-4">

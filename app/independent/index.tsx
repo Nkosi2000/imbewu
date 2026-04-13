@@ -47,7 +47,7 @@ export default function IndependentDashboard() {
   const renderCourseCard = ({ item }: { item: any }) => (
     <TouchableOpacity
       onPress={() => router.push({ pathname: '/independent/course/[id]', params: { id: item.course_id } }) }
-      className="bg-white rounded-2xl p-4 shadow-md mb-4"
+      className="bg-slate-800 rounded-2xl p-4 shadow-lg mb-4 border border-slate-700"
       style={{ elevation: 2 }}
     >
       <View className="flex-row items-center">

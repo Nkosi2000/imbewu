@@ -2,12 +2,12 @@
  * @fileoverview Admin settings screen
  */
 
-import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
-import { LogOut, Shield, Bell, Database, ChevronRight } from 'lucide-react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useAuthStore } from '@/store/auth';
 import { signOut } from '@/services/supabase';
+import { useAuthStore } from '@/store/auth';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { Bell, ChevronRight, Database, LogOut, Shield } from 'lucide-react-native';
+import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 export default function AdminSettingsScreen() {
   const { user, logout } = useAuthStore();
@@ -39,14 +39,14 @@ export default function AdminSettingsScreen() {
   ];
 
   return (
-    <LinearGradient colors={['#faf5ff', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b', '#0f172a']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Settings</Text>
+        <Text className="text-2xl font-bold text-white">Settings</Text>
       </View>
 
       <ScrollView className="flex-1">
         <View className="items-center py-8">
-          <View className="w-24 h-24 rounded-full bg-violet-600 items-center justify-center mb-4">
+          <View className="w-24 h-24 rounded-full bg-primary-600 items-center justify-center mb-4">
             <Shield size={40} color="white" />
           </View>
           <Text className="text-xl font-bold text-earth-800">

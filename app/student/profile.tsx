@@ -38,9 +38,9 @@ export default function ProfileScreen() {
   ];
 
   return (
-    <LinearGradient colors={['#f0fdf4', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b']} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Profile</Text>
+        <Text className="text-2xl font-bold text-white">Profile</Text>
       </View>
 
       <ScrollView className="flex-1">
@@ -50,10 +50,10 @@ export default function ProfileScreen() {
               {user?.first_name?.charAt(0)}{user?.last_name?.charAt(0)}
             </Text>
           </View>
-          <Text className="text-xl font-bold text-earth-800">
+          <Text className="text-xl font-bold text-white">
             {user?.first_name} {user?.last_name}
           </Text>
-          <Text className="text-earth-500 capitalize">{user?.role}</Text>
+          <Text className="text-slate-400 capitalize">{user?.role}</Text>
         </View>
 
         <View className="px-5">
@@ -69,7 +69,7 @@ export default function ProfileScreen() {
                   }`}
                 >
                   <Icon size={20} color="#16a34a" />
-                  <Text className="flex-1 ml-3 text-earth-800">{item.label}</Text>
+                  <Text className="flex-1 ml-3 text-white">{item.label}</Text>
                   <ChevronRight size={20} color="#a8a29e" />
                 </TouchableOpacity>
               );

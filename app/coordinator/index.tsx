@@ -4,7 +4,7 @@
 
 import { createClass, getClassesByCoordinator } from '@/services/supabase';
 import { useAuthStore } from '@/store/auth';
-import type { Class, Course } from '@/types';
+import type { Class } from '@/types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -18,7 +18,7 @@ export default function CoordinatorDashboard() {
   const queryClient = useQueryClient();
   const [showCreate, setShowCreate] = useState(false);
 
-  const { data: classes = [], isLoading, refetch } = useQuery<(Class & { courses: Course })[]>({
+  const { data: classes = [], isLoading, refetch } = useQuery<Class[]>({
     queryKey: ['coordinator-classes', user?.id],
     queryFn: () => user ? getClassesByCoordinator(user.id) : Promise.resolve([]),
     enabled: !!user,
@@ -37,19 +37,16 @@ export default function CoordinatorDashboard() {
     Alert.alert('Copied!', `Join code "${code}" copied to clipboard`);
   };
 
-  const renderClassCard = ({ item }: { item: Class & { courses: Course } }) => (
+  const renderClassCard = ({ item }: { item: Class }) => (
     <TouchableOpacity
-      onPress={() => router.push({ pathname: '/coordinator/class/[id]', params: { id: item.id } }) }
-
-      className="bg-white rounded-2xl p-4 shadow-md mb-4"
+      onPress={() => router.push({ pathname: '/coordinator/class/[id]', params: { id: item.id } })}
+      className="bg-slate-800 rounded-2xl p-4 shadow-lg mb-4 border border-slate-700"
       style={{ elevation: 2 }}
     >
       <View className="flex-row justify-between items-start">
         <View className="flex-1">
-          <Text className="text-lg font-bold text-earth-800">{item.name}</Text>
-          <Text className="text-primary-600 text-sm mt-1">
-            {item.courses?.title}
-          </Text>
+          <Text className="text-lg font-bold text-white">{item.name}</Text>
+          <Text className="text-primary-400 text-sm mt-1">Course ID: {item.course_id}</Text>
         </View>
         <TouchableOpacity
           onPress={() => handleCopyCode(item.join_code)}

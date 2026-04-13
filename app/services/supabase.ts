@@ -196,16 +196,19 @@ export async function updateLessonProgress(
   lessonId: string, 
   percentage: number
 ): Promise<LessonProgress | null> {
-  const completedAt = percentage >= 100 ? new Date().toISOString() : null;
+  const isCompleted = percentage >= 100;
+  const completedAt = isCompleted ? new Date().toISOString() : null;
   
   const { data, error } = await supabase
     .from('lesson_progress')
     .upsert({
       user_id: userId,
       lesson_id: lessonId,
-      percentage_completed: percentage,
+      pct_complete: percentage,
+      is_completed: isCompleted,
       completed_at: completedAt,
-      updated_at: new Date().toISOString(),
+    }, {
+      onConflict: 'user_id,lesson_id'
     })
     .select()
     .single();
@@ -277,8 +280,7 @@ export async function getEnrolmentsByUser(userId: string): Promise<(CourseEnrolm
 export async function enrollInCourse(
   userId: string, 
   courseId: string, 
-  enrolmentType: 'independent' | 'class_based',
-  classId?: string
+  enrolmentType: 'independent' | 'class_based'
 ): Promise<CourseEnrolment | null> {
   const { data, error } = await supabase
     .from('course_enrolments')
@@ -286,7 +288,6 @@ export async function enrollInCourse(
       user_id: userId,
       course_id: courseId,
       enrolment_type: enrolmentType,
-      class_id: classId || null,
       enrolled_at: new Date().toISOString(),
     })
     .select()
@@ -300,11 +301,11 @@ export async function enrollInCourse(
 }
 
 // Class services
-export async function getClassesByCoordinator(coordinatorId: string): Promise<(Class & { courses: Course })[]> {
+export async function getClassesByCoordinator(coordinatorId: string): Promise<Class[]> {
   const { data, error } = await supabase
     .from('classes')
-    .select('*, courses(*)')
-    .eq('coordinator_id', coordinatorId);
+    .select('*')
+    .eq('created_by', coordinatorId);
   
   if (error) {
     console.error('Error fetching classes:', error);

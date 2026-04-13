@@ -42,7 +42,7 @@ export default function DiscoverScreen() {
     
     const classData = await getClassByJoinCode(joinCode.trim().toUpperCase());
     if (classData) {
-      const result = await enrollInCourse(user.id, classData.course_id, 'class_based', classData.id);
+      const result = await enrollInCourse(user.id, classData.course_id, 'class_based');
       if (result) {
         queryClient.invalidateQueries({ queryKey: ['student-enrolments'] });
         Alert.alert('Success', 'You have joined the class!');
@@ -87,10 +87,10 @@ export default function DiscoverScreen() {
   );
 
   return (
-    <LinearGradient colors={['#f0fdf4', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b', '#0f172a']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Discover</Text>
-        <Text className="text-earth-500">Find new courses to learn</Text>
+        <Text className="text-2xl font-bold text-white">Discover</Text>
+        <Text className="text-slate-400 mt-1">Explore new courses</Text>
       </View>
 
       <View className="px-5 mb-4">

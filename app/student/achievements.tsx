@@ -2,9 +2,9 @@
  * @fileoverview Student achievements screen
  */
 
-import { View, Text, ScrollView } from 'react-native';
-import { Award, Star, Target, Zap, BookOpen } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Award, BookOpen, Star, Target, Zap } from 'lucide-react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 const achievements = [
   { id: '1', name: 'First Steps', description: 'Complete your first lesson', icon: BookOpen, color: '#16a34a', unlocked: true },
@@ -18,10 +18,10 @@ export default function AchievementsScreen() {
   const unlockedCount = achievements.filter(a => a.unlocked).length;
 
   return (
-    <LinearGradient colors={['#f0fdf4', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b', '#0f172a']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Achievements</Text>
-        <Text className="text-earth-500">Track your progress</Text>
+        <Text className="text-2xl font-bold text-white">Achievements</Text>
+        <Text className="text-slate-400 mt-1">Your progress</Text>
       </View>
 
       <View className="px-5 mb-6">

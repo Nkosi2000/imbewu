@@ -2,9 +2,9 @@
  * @fileoverview Coordinator analytics dashboard
  */
 
-import { View, Text, ScrollView } from 'react-native';
-import { TrendingUp, Users, BookOpen, Award } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Award, BookOpen, TrendingUp, Users } from 'lucide-react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 const stats = [
   { label: 'Total Students', value: '24', icon: Users, color: '#16a34a' },
@@ -22,10 +22,10 @@ const recentActivity = [
 
 export default function CoordinatorAnalyticsScreen() {
   return (
-    <LinearGradient colors={['#f0fdf4', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b', '#0f172a']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Analytics</Text>
-        <Text className="text-earth-500">Track your students' progress</Text>
+        <Text className="text-2xl font-bold text-white">Analytics</Text>
+        <Text className="text-slate-400">Track your students' progress</Text>
       </View>
 
       <ScrollView className="flex-1 px-5">

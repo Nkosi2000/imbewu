@@ -43,11 +43,11 @@ export default function ExploreScreen() {
   const renderCourseCard = ({ item }: { item: Course }) => (
     <TouchableOpacity
       onPress={() => router.push({ pathname: '/independent/course/[id]', params: { id: item.id } }) }
-      className="bg-white rounded-2xl overflow-hidden shadow-md mb-4"
+      className="bg-slate-800 rounded-2xl overflow-hidden shadow-lg mb-4 border border-slate-700"
       style={{ elevation: 2 }}
     >
-      <View className="h-32 bg-cyan-100 items-center justify-center">
-        <Sprout size={48} color="#0891b2" />
+      <View className="h-32 bg-primary-600 items-center justify-center">
+        <Sprout size={48} color="white" />
       </View>
       <View className="p-4">
         <Text className="text-lg font-bold text-earth-800" numberOfLines={1}>

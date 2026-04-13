@@ -2,10 +2,9 @@
  * @fileoverview Independent learner layout with bottom tabs
  */
 
-import { Tabs } from 'expo-router';
-import { BookOpen, Compass, Award, User } from 'lucide-react-native';
-import { Redirect } from 'expo-router';
 import { useAuthStore } from '@/store/auth';
+import { Redirect, Tabs } from 'expo-router';
+import { Award, BookOpen, Compass, User } from 'lucide-react-native';
 
 export default function IndependentLayout() {
   const { user, isAuthenticated } = useAuthStore();
@@ -14,7 +13,7 @@ export default function IndependentLayout() {
     return <Redirect href="/auth/login" />;
   }
 
-  if (user?.role !== 'independent') {
+  if (user?.role !== 'independent_grower') {
     return <Redirect href="/" />;
   }
 

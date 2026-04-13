@@ -2,14 +2,14 @@
  * @fileoverview Create new course screen
  */
 
-import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
-import { useRouter } from 'expo-router';
-import { ChevronLeft, Save } from 'lucide-react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createCourse } from '@/services/supabase';
 import { useAuthStore } from '@/store/auth';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+import { ChevronLeft, Save } from 'lucide-react-native';
+import { useState } from 'react';
+import { Alert, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function CreateCourseScreen() {
   const router = useRouter();
@@ -25,6 +25,7 @@ export default function CreateCourseScreen() {
         title,
         description,
         cover_image: null,
+        offline_url: null,
         created_by: user.id,
         is_published: false,
       });
@@ -48,8 +49,8 @@ export default function CreateCourseScreen() {
   };
 
   return (
-    <View className="flex-1 bg-earth-50">
-      <LinearGradient colors={['#7c3aed', '#6d28d9']} className="pt-14 pb-6 px-5">
+    <View className="flex-1 bg-slate-900">
+      <LinearGradient colors={['#16a34a', '#15803d']} className="pt-14 pb-6 px-5">
         <View className="flex-row items-center">
           <TouchableOpacity
             onPress={() => router.back()}
@@ -62,19 +63,19 @@ export default function CreateCourseScreen() {
       </LinearGradient>
 
       <ScrollView className="flex-1 px-5 py-6">
-        <View className="bg-white rounded-2xl p-5 shadow-sm">
-          <Text className="text-earth-700 font-medium mb-2">Course Title</Text>
+        <View className="bg-slate-800 rounded-2xl p-5 shadow-lg border border-slate-700">
+          <Text className="text-slate-200 font-medium mb-2">Course Title</Text>
           <TextInput
-            className="bg-earth-50 rounded-xl px-4 py-3 text-earth-800"
+            className="bg-slate-700 rounded-xl px-4 py-3 text-white border border-slate-600"
             placeholder="Enter course title"
             value={title}
             onChangeText={setTitle}
-            placeholderTextColor="#a8a29e"
+            placeholderTextColor="#94a3b8"
           />
 
-          <Text className="text-earth-700 font-medium mb-2 mt-5">Description</Text>
+          <Text className="text-slate-200 font-medium mb-2 mt-5">Description</Text>
           <TextInput
-            className="bg-earth-50 rounded-xl px-4 py-3 text-earth-800"
+            className="bg-slate-700 rounded-xl px-4 py-3 text-white border border-slate-600"
             placeholder="Enter course description"
             value={description}
             onChangeText={setDescription}

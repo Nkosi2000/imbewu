@@ -2,14 +2,14 @@
  * @fileoverview Lesson detail screen
  */
 
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import { useQuery, useMutation } from '@tanstack/react-query';
-import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
-import { ChevronLeft, Clock, CheckCircle, FileText } from 'lucide-react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useState, useEffect } from 'react';
 import { getLessonById, updateLessonProgress } from '@/services/supabase';
 import { useAuthStore } from '@/store/auth';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { CheckCircle, ChevronLeft, Clock } from 'lucide-react-native';
+import { useEffect, useState } from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -73,7 +73,7 @@ export default function LessonScreen() {
       <ScrollView className="flex-1 px-5 py-6">
         <View className="flex-row items-center mb-4">
           <Clock size={16} color="#78716c" />
-          <Text className="text-earth-500 text-sm ml-2">{lesson?.duration_minutes} minutes</Text>
+            <Text className="text-earth-500 text-sm ml-2">{lesson?.duration_mins} minutes</Text>
         </View>
 
         <Text className="text-xl font-bold text-earth-800 mb-4">{lesson?.title}</Text>

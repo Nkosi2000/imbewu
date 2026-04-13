@@ -2,12 +2,12 @@
  * @fileoverview Coordinator profile screen
  */
 
-import { View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native';
-import { User, Mail, LogOut, ChevronRight, Crown } from 'lucide-react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useAuthStore } from '@/store/auth';
 import { signOut } from '@/services/supabase';
+import { useAuthStore } from '@/store/auth';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { ChevronRight, Crown, LogOut, Mail, User } from 'lucide-react-native';
+import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 export default function CoordinatorProfileScreen() {
   const { user, logout } = useAuthStore();
@@ -39,9 +39,9 @@ export default function CoordinatorProfileScreen() {
   ];
 
   return (
-    <LinearGradient colors={['#f0fdf4', '#fafaf9']} className="flex-1">
+    <LinearGradient colors={['#0f172a', '#1e293b', '#0f172a']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} className="flex-1">
       <View className="pt-14 px-5 pb-4">
-        <Text className="text-2xl font-bold text-earth-800">Profile</Text>
+        <Text className="text-2xl font-bold text-white">Profile</Text>
       </View>
 
       <ScrollView className="flex-1">
